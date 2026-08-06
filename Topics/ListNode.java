@@ -1,27 +1,30 @@
-public class ListNode {
-    int val;
-    ListNode next;
+package topics;
 
-    ListNode() {
+public class ListNode {
+    public int val;
+    public ListNode next;
+
+    public ListNode() {
     }
 
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }
 
-    public ListNode reverse(ListNode head){
-        if(head == null){
+    // Reverse Linked List
+    public static ListNode reverse(ListNode head) {
+        if (head == null) {
             return null;
         }
         ListNode prev = head;
         ListNode curr = head.next;
-        prev.next=null;
-        while(curr != null){
+        prev.next = null;
+        while (curr != null) {
             ListNode forw = curr.next;
             curr.next = prev;
             prev = curr;
@@ -30,21 +33,26 @@ public class ListNode {
         return prev;
     }
 
-    public void printListNode(ListNode head){
-        while(head!=null){
-            System.out.print(head.val+" -> ");
+    // Print Linked List
+    public static void printListNode(ListNode head) {
+        while (head != null) {
+            System.out.print(head.val);
+            if (head.next != null) {
+                System.out.print(" -> ");
+            }
             head = head.next;
         }
-        
+
     }
-    public void main(String[] args) {
-        ListNode l5 = new ListNode(50,null);
-        ListNode l4 = new ListNode(40,l5);
-        ListNode l3 = new ListNode(30,l4);
-        ListNode l2 = new ListNode(20,l3);
-        ListNode l1 = new ListNode(10,l2);
-        ListNode head = l1;
-        head = reverse(head);
-        printListNode(head);
+
+    // Create Linked List
+    public static ListNode createListNode(int[] arr) {
+        ListNode dummy = new ListNode(-1);
+        ListNode curr = dummy;
+        for (int i : arr) {
+            curr.next = new ListNode(i);
+            curr = curr.next;
+        }
+        return dummy.next;
     }
 }
