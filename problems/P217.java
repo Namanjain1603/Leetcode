@@ -1,7 +1,9 @@
+package problems;
+
 import java.util.HashSet;
 
 public class P217 {
-    public boolean containsDuplicate(int[] nums) {
+    public static boolean containsDuplicate(int[] nums) {
         HashSet<Integer> dupli = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             if (dupli.contains(nums[i])) {
@@ -11,5 +13,10 @@ public class P217 {
             }
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 };
+        System.out.println(containsDuplicate(nums));
     }
 }
